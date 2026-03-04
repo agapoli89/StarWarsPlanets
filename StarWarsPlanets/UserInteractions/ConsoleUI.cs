@@ -1,26 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using StarWarsPlanets.Model;
 
 namespace StarWarsPlanets.UserInteractions;
 
 public class ConsoleUI : IUI
 {
-    public string GetData()
+    public void ExitApp()
     {
-        return Console.ReadLine();
+        PrintMessage("Press any key to close");
+        Console.ReadKey();
     }
 
-    public void PrintPlanets(List<PlanetInfo> planets)
+    public string GetData()
     {
-        Console.WriteLine($"{"Name".PadRight(15)} | {"Diameter".PadRight(15)} | {"SurfaceWater".PadRight(15)} | {"Population".PadRight(15)}");
-        Console.WriteLine(new string('-', 70));
-        foreach (var planet in planets)
+        while (true)
         {
-            Console.WriteLine(
-                $"{planet.name.PadRight(15)} | {planet.diameter.PadRight(15)} | {planet.surface_water.PadRight(15)} | {planet.population.PadRight(15)}");
-        }
+            var input = Console.ReadLine();
+            if (!string.IsNullOrEmpty(input))
+            {
+                return input;  
+            }
+            Console.WriteLine("Invalid input");
+        };
     }
+
+    public void PrintMessage(string message)
+    {
+        Console.WriteLine(message);
+    }
+
+  
     public void PrintQuestion() => Console.WriteLine($@"The statistics of which property would you like to see?
 population
 diameter

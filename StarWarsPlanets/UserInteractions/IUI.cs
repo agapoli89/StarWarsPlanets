@@ -1,9 +1,12 @@
-﻿namespace StarWarsPlanets.UserInteractions
+﻿using StarWarsPlanets.Model;
+
+namespace StarWarsPlanets.UserInteractions
 {
     public interface IUI
     {
+        void ExitApp();
         string GetData();
-        void PrintPlanets(List<PlanetInfo> planets);
+        void PrintMessage(string message);
         void PrintQuestion();
     }
 }

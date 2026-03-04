@@ -1,8 +1,9 @@
 ﻿using System.Text.Json;
+using StarWarsPlanets.Model;
 
 namespace StarWarsPlanets.API
 {
-    public class DataReader
+    public class DataReader : IDataReader
     {
         private readonly IApiDataReader _apiDataReader;
 
