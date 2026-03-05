@@ -1,5 +1,4 @@
 ﻿using StarWarsPlanets.DataAccess;
-using StarWarsPlanets.DTO;
 using StarWarsPlanets.UserInteractions;
 using StarWarsPlanets.Validation;
 
@@ -11,16 +10,16 @@ public class StarWarsPlanetsApp(IUserInputValidator userInputValidator, IUI ui, 
     private readonly IUI _ui = ui;
     private readonly IPlanetReader _dataReader = dataReader;
 
-    public async void Run()
+    public async Task Run()
     {
-        var planets = _dataReader.DeserializeData().GetAwaiter().GetResult();
-
+        var planets = await _dataReader.DeserializeData();
+      
         ConsoleTablePrinter.PrintTable(planets);
         _ui.PrintQuestion();
-        var validatedProperty = _userInputValidator.Validate(_ui.GetData());
-        if (validatedProperty != null)
+        var statisticField = _userInputValidator.Validate(_ui.GetData());
+        if (statisticField != null)
         {
-            var message = StarWarsPlanetsStatistic.GetMinMaxValue(planets, validatedProperty);
+            var message = StarWarsPlanetsStatistic.GetMinMaxValue(planets, statisticField);
             _ui.PrintMessage(message);
         }
         _ui.ExitApp();

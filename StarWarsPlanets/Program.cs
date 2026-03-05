@@ -8,7 +8,7 @@ var app = new StarWarsPlanetsApp(new UserInputValidator(), new ConsoleUI(), new 
 
 try
 {
-    app.Run();
+    await app.Run();
 }
 catch (Exception ex)
 {
