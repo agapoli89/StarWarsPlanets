@@ -1,4 +1,4 @@
-﻿using StarWarsPlanets.Model;
+﻿using StarWarsPlanets.DTO;
 
 namespace StarWarsPlanets.UserInteractions
 {

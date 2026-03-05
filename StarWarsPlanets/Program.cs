@@ -1,9 +1,10 @@
 ﻿using StarWarsPlanets.API;
 using StarWarsPlanets.App;
+using StarWarsPlanets.DataAccess;
 using StarWarsPlanets.UserInteractions;
 using StarWarsPlanets.Validation;
 
-var app = new StarWarsPlanetsApp(new UserInputValidator(), new ConsoleUI(), new DataReader());
+var app = new StarWarsPlanetsApp(new UserInputValidator(), new ConsoleUI(), new PlanetReader());
 
 try
 {

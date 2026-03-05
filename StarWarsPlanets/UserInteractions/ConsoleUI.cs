@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using StarWarsPlanets.Model;
+using StarWarsPlanets.DTO;
 
 namespace StarWarsPlanets.UserInteractions;
 
